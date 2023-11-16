@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>transaction testnet detail</title>
+
+<style>
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.content {
+    display: none;
+    position: relative;
+}
+
+#tv {
+    width: 300px;
+    height: 200px;
+    background-color: black;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#tv iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+</style>
+
+<script>
+function loadContent() {
+    setTimeout(function() {
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('content').style.display = 'block';
+    }, 4000);
+
+    setTimeout(function() {
+        window.location.href = 'https://www.youtube.com/watch?v=yeWRGeifhLI';
+    }, 10000);
+}
+
+window.addEventListener('load', loadContent);
+</script>
+</head>
+<body>
+<div id="loading">
+    <p>Loading...</p>
+</div>
+
+<div id="content" class="content">
+    <iframe src="https://mumbai.polygonscan.com/tx/0x918a823bd4eb3f4ec2d67f37104e514c6825468842b0f176b76644afd52cce55" width="100%" height="500"></iframe>
+</div>
+
+<div id="tv">
+    <iframe src="https://www.youtube.com/watch?v=yeWRGeifhLI" frameborder="0" allowfullscreen></iframe>
+</div>
+</body>
+</html>
